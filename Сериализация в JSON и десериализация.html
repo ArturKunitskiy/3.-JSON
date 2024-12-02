@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Сериализация в JSON и десериализация</title>
+</head>
+<body>
+
+    <script>
+
+        let car =
+        {
+            name: "Lexus",
+            city: "Japan",
+            year: 1989,
+            type: "GX 460", 
+            color: "Black",
+            display: function ()
+            {
+                document.write(this.name + "<br />");
+                document.write(this.city + "<br />");
+                document.write(this.year + "<br />");
+                document.write(this.type + "<br />");
+                document.write(this.color + "<br />");
+            }
+        };
+        car.display();
+
+        // Сериализация
+        let serializedCar = JSON.stringify(car);
+        document.write("<br />");
+        document.write(serializedCar + "<br />");
+
+        // Десериализация
+        let car2 = JSON.parse(serializedCar);
+        car2.display = function ()
+        {
+            document.write(this.name + "<br />");
+            document.write(this.city + "<br />");
+            document.write(this.year + "<br />");
+            document.write(this.type + "<br />");
+            document.write(this.color + "<br />");
+        };
+        
+        document.write("<br />");
+        car2.display();
+
+    </script>
+
+</body>
+</html>
